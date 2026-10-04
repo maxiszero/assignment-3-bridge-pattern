@@ -1,7 +1,9 @@
 Build target: Java 17 (--release 17, class file major version 61)
 Compilation flags: -encoding UTF-8 -Xlint:all -Werror
 Execution runtime: Oracle JDK 25.0.1 on Windows
-No separate JDK 17 runtime execution was performed.
+GitHub Actions also passed all tests and the demo on Temurin JDK 17 for Windows and Linux.
+Verified workflow: https://github.com/maxiszero/assignment-3-bridge-pattern/actions/runs/37194641274
+Verified source commit: 20cf25f664813307845842e256070479ef14084d
 
 Automated test results:
 PASS circle keeps its radius when its renderer changes

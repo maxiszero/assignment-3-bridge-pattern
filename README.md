@@ -92,6 +92,7 @@ boundary dimensions, null inputs, write failures, and locale-independent SVG.
 See `docs/verification.txt` for the captured build environment and results.
 GitHub Actions also compiles, tests and runs the demo with Temurin JDK 17 on
 Windows and Linux after pushes to `main` and on pull requests.
+Both jobs passed in the [verified Java 17 run](https://github.com/maxiszero/assignment-3-bridge-pattern/actions/runs/37194641274).
 
 The report is `docs/Assignment_3_Bridge_Pattern_Report.pdf`.
 Russian defense preparation is in `docs/DEFENSE_RU.md`.
