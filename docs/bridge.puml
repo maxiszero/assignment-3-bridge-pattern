@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide empty members
+title Bridge pattern in Shape Renderer
+abstract class Shape <<Abstraction>> {
+  -renderer: Renderer
+  #Shape(renderer: Renderer)
+  +setRenderer(renderer: Renderer): void
+  #renderer(): Renderer
+  {abstract} +draw(): void
+}
+class Circle <<Refined Abstraction>> {
+  -radius: int
+  +Circle(radius: int, renderer: Renderer)
+  +draw(): void
+}
+class Square <<Refined Abstraction>> {
+  -side: int
+  +Square(side: int, renderer: Renderer)
+  +draw(): void
+}
+interface Renderer <<Implementor>> {
+  +drawCircle(radius: int): void
+  +drawSquare(side: int): void
+}
+class VectorRenderer <<Concrete Implementor>> {
+  +VectorRenderer(directory: Path)
+  +drawCircle(radius: int): void
+  +drawSquare(side: int): void
+}
+class RasterRenderer <<Concrete Implementor>> {
+  +RasterRenderer(directory: Path)
+  +drawCircle(radius: int): void
+  +drawSquare(side: int): void
+}
+class Main <<Client>> {
+  {static} +main(args: String[]): void
+}
+Shape <|-- Circle
+Shape <|-- Square
+Renderer <|.. VectorRenderer
+Renderer <|.. RasterRenderer
+Shape "0..*" o-right-> "1" Renderer : bridge reference
+Main ..> Shape : draw and switch
+Main ..> Circle : creates
+Main ..> Square : creates
+Main ..> VectorRenderer : creates
+Main ..> RasterRenderer : creates
+note bottom of Shape
+  Object composition connects the hierarchies.
+  The open diamond represents shared aggregation:
+  one renderer can serve more than one shape.
+  draw operations can throw IOException.
+end note
+note bottom of Renderer
+  Support classes omitted: DrawingFiles,
+  Dimensions and DrawingStyle.
+end note
+@enduml
