@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="499" height="355" preserveAspectRatio="xMinYMin meet" viewBox="0 0 499 355" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="499" height="355"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-355)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="4" y="222" width="208" height="123" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="80.847998046875" y="332" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,664) scale(1,-1)">&lt;&lt;Abstraction&gt;&gt;</text>
+			<text x="92.9951171875" y="317" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,634) scale(1,-1)">Shape</text>
+			<path d="M 4,310 L 212,310 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="11" y="296" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,592) scale(1,-1)">- renderer: Renderer</text>
+			<path d="M 4,289 L 212,289 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="11" y="276" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,552) scale(1,-1)"># Shape(renderer: Renderer)</text>
+			<text x="11" y="264" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,528) scale(1,-1)">+ setRenderer(renderer: Renderer): void</text>
+			<text x="11" y="252" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,504) scale(1,-1)"># renderer(): Renderer</text>
+			<text x="11" y="240" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,480) scale(1,-1)">+ draw(): void {abstract}</text>
+			<rect x="287" y="242" width="208" height="103" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="336.903759765625" y="332" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,664) scale(1,-1)">&lt;&lt;interface&gt;&gt;  &lt;&lt;Implementor&gt;&gt;</text>
+			<text x="369.046875" y="317" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,634) scale(1,-1)">Renderer</text>
+			<path d="M 287,310 L 495,310 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="294" y="296" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,592) scale(1,-1)">+ drawCircle(radius: int): void</text>
+			<text x="294" y="284" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,568) scale(1,-1)">+ drawSquare(side: int): void</text>
+			<rect x="4" y="83" width="101" height="83" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="13.566943359374996" y="153" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,306) scale(1,-1)">&lt;&lt;Refined Abstraction&gt;&gt;</text>
+			<text x="40.603515625" y="138" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,276) scale(1,-1)">Circle</text>
+			<path d="M 4,131 L 105,131 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="11" y="117" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,234) scale(1,-1)">- radius: int</text>
+			<path d="M 4,110 L 105,110 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="11" y="97" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,194) scale(1,-1)">+ draw(): void</text>
+			<rect x="111" y="83" width="101" height="83" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="120.56694335937499" y="153" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,306) scale(1,-1)">&lt;&lt;Refined Abstraction&gt;&gt;</text>
+			<text x="144.54931640625" y="138" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,276) scale(1,-1)">Square</text>
+			<path d="M 111,131 L 212,131 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="118" y="117" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,234) scale(1,-1)">- side: int</text>
+			<path d="M 111,110 L 212,110 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="118" y="97" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,194) scale(1,-1)">+ draw(): void</text>
+			<rect x="276" y="83" width="109" height="83" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="285.252685546875" y="153" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,306) scale(1,-1)">&lt;&lt;Concrete Implementor&gt;&gt;</text>
+			<text x="292.9853515625" y="138" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,276) scale(1,-1)">VectorRenderer</text>
+			<path d="M 276,131 L 385,131 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="283" y="117" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,234) scale(1,-1)">+ drawCircle(int): void</text>
+			<text x="283" y="105" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,210) scale(1,-1)">+ drawSquare(int): void</text>
+			<rect x="391" y="83" width="108" height="83" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="399.752685546875" y="153" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,306) scale(1,-1)">&lt;&lt;Concrete Implementor&gt;&gt;</text>
+			<text x="407.48291015625" y="138" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,276) scale(1,-1)">RasterRenderer</text>
+			<path d="M 391,131 L 499,131 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="398" y="117" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,234) scale(1,-1)">+ drawCircle(int): void</text>
+			<text x="398" y="105" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,210) scale(1,-1)">+ drawSquare(int): void</text>
+			<path d="M 54,166 L 54,194 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 54,194 L 108,194 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 161,166 L 161,194 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 161,194 L 108,194 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 108,194 L 108,211 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="108 222, 102 211, 114 211" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 330,166 L 330,198 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 4, 3;"/>
+			<path d="M 330,198 L 390,198 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 4, 3;"/>
+			<path d="M 444,166 L 444,198 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 4, 3;"/>
+			<path d="M 444,198 L 390,198 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 4, 3;"/>
+			<path d="M 390,198 L 390,231 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 4, 3;"/>
+			<polygon points="390 242, 384 231, 396 231" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<polygon points="212 283, 220 288, 228 283, 220 278" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 228,283 L 287,283 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 280,287 L 287,283 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 280,279 L 287,283 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="238" y="301" style="font-family: BodyBold; font-size: 8.3px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,602) scale(1,-1)">bridge</text>
+			<text x="234" y="290" style="font-family: Body; font-size: 7.6px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,580) scale(1,-1)">0..*</text>
+			<text x="276" y="290" style="font-family: Body; font-size: 7.6px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,580) scale(1,-1)">1</text>
+			<rect x="158" y="3" width="192" height="55" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="235.8974609375" y="45" style="font-family: Body; font-size: 7.4px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,90) scale(1,-1)">&lt;&lt;Client&gt;&gt;</text>
+			<text x="242.61083984375" y="30" style="font-family: BodyBold; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,60) scale(1,-1)">Main</text>
+			<path d="M 158,23 L 350,23 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<text x="165" y="9" style="font-family: Body; font-size: 7.8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,18) scale(1,-1)">+ main(args: String[]): void</text>
+			<path d="M 169,58 L 54,83 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 3, 3;"/>
+			<path d="M 54,83 L 61.477523,84.444522 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 54,83 L 60.202946,78.581463 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 209,58 L 161,83 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 3, 3;"/>
+			<path d="M 161,83 L 168.594202,82.427201 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 161,83 L 165.822595,77.105717 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 303,58 L 330,83 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 3, 3;"/>
+			<path d="M 330,83 L 326.901899,76.042862 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 330,83 L 322.825451,80.445426 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 339,58 L 444,83 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9; stroke-dasharray: 3, 3;"/>
+			<path d="M 444,83 L 437.885218,78.460238 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<path d="M 444,83 L 436.495495,84.297075 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+		</g>
+	</g>
+</svg>

@@ -1,6 +1,10 @@
 # Assignment 3 - Bridge Pattern
 
 Java 17 Shape-Renderer example for Software Design Patterns, Astana IT University.
+Student: **Olzhabekov Ali**, group **SE-2515**.
+
+Repository: [maxiszero/assignment-3-bridge-pattern](https://github.com/maxiszero/assignment-3-bridge-pattern).
+
 `Circle` and `Square` keep their geometry while switching between `VectorRenderer`
 (real SVG files) and `RasterRenderer` (real PNG files). No external libraries or
 build-tool downloads are required.
@@ -86,6 +90,8 @@ Tests cover geometry delegation and preservation, switching both shapes between
 both real renderers, valid SVG attributes, PNG dimensions and pixels, invalid and
 boundary dimensions, null inputs, write failures, and locale-independent SVG.
 See `docs/verification.txt` for the captured build environment and results.
+GitHub Actions also compiles, tests and runs the demo with Temurin JDK 17 on
+Windows and Linux after pushes to `main` and on pull requests.
 
 The report is `docs/Assignment_3_Bridge_Pattern_Report.pdf`.
 Russian defense preparation is in `docs/DEFENSE_RU.md`.

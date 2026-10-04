@@ -1,0 +1,31 @@
+Build target: Java 17 (--release 17, class file major version 61)
+Compilation flags: -encoding UTF-8 -Xlint:all -Werror
+Execution runtime: Oracle JDK 25.0.1 on Windows
+No separate JDK 17 runtime execution was performed.
+
+Automated test results:
+PASS circle keeps its radius when its renderer changes
+PASS square keeps its side when its renderer changes
+PASS invalid dimensions are rejected
+PASS boundary dimensions are accepted
+PASS null renderer is rejected without losing the previous renderer
+PASS vector circle produces valid SVG geometry
+PASS vector square produces valid SVG geometry
+PASS raster circle is a decodable PNG with circular pixels
+PASS raster square has the correct size and fill
+PASS the same shapes work with both concrete renderers
+PASS concrete renderers also enforce the size contract
+PASS file failures are reported to the caller
+PASS null output directories are rejected
+PASS SVG numbers do not depend on the machine locale
+PASS: 14 tests
+
+Demo results:
+1. VectorRenderer: draw a circle and a square as SVG.
+2. Switch the same Shape objects to RasterRenderer.
+3. Switch the same circle back to VectorRenderer.
+No Shape was recreated; radius = 40 and side = 80 throughout.
+Created circle.svg, square.svg, circle.png and square.png in:
+D:\projects\bridge-pattern-assignment\output
+
+Additional checks: both PowerShell and Git Bash launchers passed; Main returned exit code 2 for excess arguments and exit code 1 for an output path that is a regular file; javap confirmed class-file version 61.
