@@ -2,6 +2,13 @@ package bridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Comparator;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Element;
 
 /** Dependency-free tests: failures throw AssertionError even without -ea. */
 public final class BridgeTest {
@@ -53,6 +60,80 @@ public final class BridgeTest {
             circle.draw();
             equal(List.of("circle:10"), renderer.drawings);
         });
+        run("vector circle produces valid SVG geometry", () -> withTempDirectory(dir -> {
+            new Circle(40, new VectorRenderer(dir)).draw();
+            Element svg = readSvg(dir.resolve("circle.svg"));
+            equal("104", svg.getAttribute("width"));
+            Element circle = (Element) svg.getElementsByTagName("circle").item(0);
+            equal("52", circle.getAttribute("cx"));
+            equal("52", circle.getAttribute("cy"));
+            equal("40", circle.getAttribute("r"));
+        }));
+        run("vector square produces valid SVG geometry", () -> withTempDirectory(dir -> {
+            new Square(80, new VectorRenderer(dir)).draw();
+            Element svg = readSvg(dir.resolve("square.svg"));
+            Element square = (Element) svg.getElementsByTagName("rect").item(1);
+            equal("12", square.getAttribute("x"));
+            equal("12", square.getAttribute("y"));
+            equal("80", square.getAttribute("width"));
+            equal("80", square.getAttribute("height"));
+        }));
+        run("raster circle is a decodable PNG with circular pixels", () -> withTempDirectory(dir -> {
+            new Circle(40, new RasterRenderer(dir)).draw();
+            var image = ImageIO.read(dir.resolve("circle.png").toFile());
+            equal(104, image.getWidth());
+            equal(104, image.getHeight());
+            equal(0x2563eb, image.getRGB(52, 52) & 0xffffff);
+            equal(0xffffff, image.getRGB(12, 12) & 0xffffff);
+            equal(0xffffff, image.getRGB(0, 0) & 0xffffff);
+        }));
+        run("raster square has the correct size and fill", () -> withTempDirectory(dir -> {
+            new Square(80, new RasterRenderer(dir)).draw();
+            var image = ImageIO.read(dir.resolve("square.png").toFile());
+            equal(104, image.getWidth());
+            equal(104, image.getHeight());
+            equal(0x2563eb, image.getRGB(13, 13) & 0xffffff);
+            equal(0x2563eb, image.getRGB(90, 90) & 0xffffff);
+            equal(0xffffff, image.getRGB(0, 0) & 0xffffff);
+        }));
+        run("the same shapes work with both concrete renderers", () -> withTempDirectory(dir -> {
+            Renderer vector = new VectorRenderer(dir.resolve("vector"));
+            Renderer raster = new RasterRenderer(dir.resolve("raster"));
+            Shape[] shapes = {new Circle(40, vector), new Square(80, vector)};
+            for (Shape shape : shapes) {
+                shape.draw();
+                shape.setRenderer(raster);
+                shape.draw();
+                shape.setRenderer(vector);
+                shape.draw();
+            }
+            equal(true, Files.isRegularFile(dir.resolve("vector/circle.svg")));
+            equal(true, Files.isRegularFile(dir.resolve("vector/square.svg")));
+            equal(true, Files.isRegularFile(dir.resolve("raster/circle.png")));
+            equal(true, Files.isRegularFile(dir.resolve("raster/square.png")));
+        }));
+        run("concrete renderers also enforce the size contract", () -> withTempDirectory(dir -> {
+            for (Renderer renderer : List.of(new VectorRenderer(dir), new RasterRenderer(dir))) {
+                for (int size : new int[] {-1, 0, 1001, Integer.MAX_VALUE}) {
+                    throwsType(IllegalArgumentException.class, () -> renderer.drawCircle(size));
+                    throwsType(IllegalArgumentException.class, () -> renderer.drawSquare(size));
+                }
+            }
+            try (var entries = Files.list(dir)) {
+                equal(0L, entries.count());
+            }
+        }));
+        run("file failures are reported to the caller", () -> withTempDirectory(dir -> {
+            Path blocked = Files.writeString(dir.resolve("not-a-directory"), "occupied");
+            for (Renderer renderer : List.of(new VectorRenderer(blocked), new RasterRenderer(blocked))) {
+                throwsType(IOException.class, () -> new Circle(10, renderer).draw());
+                throwsType(IOException.class, () -> new Square(10, renderer).draw());
+            }
+        }));
+        run("null output directories are rejected", () -> {
+            throwsType(NullPointerException.class, () -> new VectorRenderer(null));
+            throwsType(NullPointerException.class, () -> new RasterRenderer(null));
+        });
         System.out.println("PASS: " + passed + " tests");
     }
 
@@ -84,6 +165,33 @@ public final class BridgeTest {
     @FunctionalInterface
     private interface CheckedAction {
         void run() throws Exception;
+    }
+
+    @FunctionalInterface
+    private interface DirectoryAction {
+        void run(Path directory) throws Exception;
+    }
+
+    private static void withTempDirectory(DirectoryAction action) throws Exception {
+        Path directory = Files.createTempDirectory("bridge-test-");
+        try {
+            action.run(directory);
+        } finally {
+            try (var paths = Files.walk(directory)) {
+                for (Path path : paths.sorted(Comparator.reverseOrder()).toList()) {
+                    Files.delete(path);
+                }
+            }
+        }
+    }
+
+    private static Element readSvg(Path path) throws Exception {
+        var factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        var document = factory.newDocumentBuilder().parse(path.toFile());
+        Element root = document.getDocumentElement();
+        equal("svg", root.getTagName());
+        return root;
     }
 
     private static final class RecordingRenderer implements Renderer {
