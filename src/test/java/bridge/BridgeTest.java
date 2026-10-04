@@ -3,6 +3,7 @@ package bridge;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.util.Locale;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
@@ -134,6 +135,18 @@ public final class BridgeTest {
             throwsType(NullPointerException.class, () -> new VectorRenderer(null));
             throwsType(NullPointerException.class, () -> new RasterRenderer(null));
         });
+        run("SVG numbers do not depend on the machine locale", () -> withTempDirectory(dir -> {
+            Locale previous = Locale.getDefault();
+            try {
+                Locale.setDefault(Locale.forLanguageTag("ar-EG"));
+                new Circle(40, new VectorRenderer(dir)).draw();
+                new Square(80, new VectorRenderer(dir)).draw();
+                equal("104", readSvg(dir.resolve("circle.svg")).getAttribute("width"));
+                equal("104", readSvg(dir.resolve("square.svg")).getAttribute("width"));
+            } finally {
+                Locale.setDefault(previous);
+            }
+        }));
         System.out.println("PASS: " + passed + " tests");
     }
 
